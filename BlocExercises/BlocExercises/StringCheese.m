@@ -34,11 +34,14 @@
          return YES;
          */
         
-        NSRange cheeseNameRange = [cheeseName rangeOfString:@"Cheese" options:NSCaseInsensitiveSearch];
-        NSLog(@"%@", NSStringFromRange(cheeseNameRange));
-        return cheeseNameRange;
-       
+        /*  NSRange cheeseNameRange = [cheeseName rangeOfString:@"Cheese" options:NSCaseInsensitiveSearch];
+         NSLog(@"%@", NSStringFromRange(cheeseNameRange));
+         return cheeseNameRange; */
         
+        NSRange cheeseNameRange = [[cheeseName lowercaseString] rangeOfString:@"cheese"];
+        NSString *noSuffixCheeseName = [cheeseName stringByReplacingCharactersInRange:cheeseNameRange withString:@""];
+        return noSuffixCheeseName;
+       
         
     } else {
         /* WORK HERE, ASSUMING `cheeseName` DOES NOT END WITH " cheese" */
