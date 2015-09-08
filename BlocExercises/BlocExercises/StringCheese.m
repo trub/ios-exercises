@@ -20,8 +20,29 @@
     if ([[cheeseName lowercaseString] hasSuffix:@" cheese"]) {
         /* WORK HERE, ASSUMING `cheeseName` ENDS WITH " cheese" */
         
+        /* examples
+         ------------------------------------------
+        NSString *plutoStatement = @"Pluto is a planet in our solar system.";
+        NSRange planetRange = [plutoStatement rangeOfString:@"planet"];
+        NSLog(@"planetRange starting point: %lu", (unsigned long) planetRange.location);
+        NSLog(@"planetRange length: %lu", (unsigned long) planetRange.length);
+        return YES; 
+         ------------------------------------------
+         NSString *plutoStatement = @"Pluto is a planet in our solar system.";
+         NSRange planetRange = [plutoStatement rangeOfString:@"planET" options:NSCaseInsensitiveSearch];
+         NSLog(@"Planet Range is: %@", NSStringFromRange(planetRange));
+         return YES;
+         */
+        
+        NSRange cheeseNameRange = [cheeseName rangeOfString:@"Cheese" options:NSCaseInsensitiveSearch];
+        NSLog(@"%@", NSStringFromRange(cheeseNameRange));
+        return cheeseNameRange;
+       
+        
+        
     } else {
         /* WORK HERE, ASSUMING `cheeseName` DOES NOT END WITH " cheese" */
+        return cheeseName;
     }
 
     /*
@@ -38,7 +59,7 @@
         return numberOfCheesesString;
     } else {
         /* WORK HERE, ASSUMING THERE ARE 2+ CHEESES */
-        NSString *numberOfCheesesString =  [NSString stringWithFormat:@" %lu cheeses", (long)cheeseCount];
+        NSString *numberOfCheesesString =  [NSString stringWithFormat:@" %lu cheeses", (unsigned long)cheeseCount];
         return numberOfCheesesString;
         
 
