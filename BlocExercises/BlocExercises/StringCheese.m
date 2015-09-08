@@ -34,9 +34,6 @@
          return YES;
          */
         
-        NSRange cheeseNameRange = [cheeseName rangeOfString:@"Cheese" options:NSCaseInsensitiveSearch];
-        NSLog(@"%@", NSStringFromRange(cheeseNameRange));
-        return cheeseNameRange;
        
         
         
