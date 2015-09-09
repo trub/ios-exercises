@@ -12,7 +12,7 @@
 
 - (NSString *) favoriteCheeseStringWithCheese:(NSString *)cheeseName {
 
-    NSString *favoriteStringCheese = [NSString stringWithFormat: @"My favorite string cheese %@ ", cheeseName];
+    NSString *favoriteStringCheese = [NSString stringWithFormat: @"My favorite cheese is %@.", cheeseName];
     return favoriteStringCheese;
 }
 
@@ -38,7 +38,7 @@
          NSLog(@"%@", NSStringFromRange(cheeseNameRange));
          return cheeseNameRange; */
         
-        NSRange cheeseNameRange = [[cheeseName lowercaseString] rangeOfString:@"cheese"];
+        NSRange cheeseNameRange = [[cheeseName lowercaseString] rangeOfString:@" cheese"];
         NSString *noSuffixCheeseName = [cheeseName stringByReplacingCharactersInRange:cheeseNameRange withString:@""];
         return noSuffixCheeseName;
        
@@ -62,7 +62,7 @@
         return numberOfCheesesString;
     } else {
         /* WORK HERE, ASSUMING THERE ARE 2+ CHEESES */
-        NSString *numberOfCheesesString =  [NSString stringWithFormat:@" %lu cheeses", (unsigned long)cheeseCount];
+        NSString *numberOfCheesesString =  [NSString stringWithFormat:@"%lu cheeses", (unsigned long)cheeseCount];
         return numberOfCheesesString;
         
 
