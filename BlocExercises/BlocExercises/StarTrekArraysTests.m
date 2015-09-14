@@ -49,7 +49,6 @@
     actualArray = [self.starTrekArrays arrayOfStarTrekCharactersFromString:testString];
     XCTAssertEqualObjects(expectedArray, actualArray, @"The returned array was different than expected.");
 }
-
 - (void) testThatArraysAreTurnedIntoStringsProperly {
     NSArray *testArray = @[self.worf, self.picard, self.crusher];
     NSString *expectedString = [NSString stringWithFormat:@"%@;%@;%@", self.worf, self.picard, self.crusher];
