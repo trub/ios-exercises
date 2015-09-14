@@ -13,16 +13,27 @@
 - (NSString *) stringWithNumbersBetweenNumber:(NSInteger)number andOtherNumber: (NSInteger)otherNumber {
     /* WORK HERE */
     
-    while (otherNumber < number) {
-        NSLog(@"otherNumber is now: %ld", (long) otherNumber);
-        otherNumber++;
+    if (number == otherNumber) {
+        return [NSString stringWithFormat:@"%ld", (long)number];
     }
-
-    return @"";
-           
-           
     
+    NSInteger lowNumber, highNumber;
     
+    if (number < otherNumber) {
+        lowNumber = number;
+        highNumber = otherNumber;
+    } else {
+        lowNumber = otherNumber;
+        highNumber = number;
+    }
+    
+    NSMutableString *returnString = [NSMutableString string];
+    
+    for (NSInteger i = lowNumber; i <= highNumber; i++) {
+        [returnString appendFormat:@"%ld", (long)i];
+    }
+    
+    return returnString;
     
 }
 
