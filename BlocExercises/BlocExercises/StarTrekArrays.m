@@ -35,7 +35,14 @@
 - (BOOL) characterArrayContainsWorf:(NSArray *)characterArray {
     /* WORK HERE:
      testThatCharacterArrayDetectsWorfIfPresent */
-    return NO;
+    NSMutableArray *mutantCharacterArray = [characterArray mutableCopy];
+    NSPredicate *containsThe = [NSPredicate predicateWithFormat:@"SELF CONTAINS[c] 'worf'"];
+    [mutantCharacterArray filterUsingPredicate:containsThe];
+    for (NSString *task in mutantCharacterArray) {
+        NSLog(@"Remaining task: %@", task);
+    }
+    return YES;
+ 
 }
 
 @end
