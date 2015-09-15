@@ -12,17 +12,26 @@
 
 - (NSString *)favoriteDrinkForStarTrekCharacterDictionary:(NSDictionary *)characterDictionary {
     /* WORK HERE */
-    return @"";
+    NSString *myFavoriteDrink = characterDictionary[@"favorite drink"];
+    return myFavoriteDrink;
 }
 
 - (NSArray *)arrayOfFavoriteDrinksForStarTrekCharacters:(NSArray *)charactersArray {
     /* WORK HERE */
-    return @[];
+    NSMutableArray *mutableFavDrinksArray = [[NSMutableArray alloc] init];
+    for (NSInteger i=0; i <charactersArray.count; i++){
+        NSString *favoriteDrinks = charactersArray[i][@"favorite drink"];
+        [mutableFavDrinksArray addObject:favoriteDrinks];
+    }
+    return mutableFavDrinksArray;
 }
 
 - (NSDictionary *)dictionaryWithQuoteAddedToStarTrekCharacterDictionary:(NSDictionary *)characterDictionary {
     /* WORK HERE */
-    return @{};
+    NSMutableDictionary *mutableCharacterDictionary = [characterDictionary mutableCopy];
+    [mutableCharacterDictionary setObject:@"There are no compacts bewtween lions and men, and wolves and lambs have no concord." forKey:@"quote"];
+    return mutableCharacterDictionary;
 }
+                                                    
 
 @end
