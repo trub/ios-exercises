@@ -25,24 +25,20 @@
 - (NSArray *) alphabeticallySortedStarTrekCharactersFromArray:(NSArray *)characterArray {
     /* WORK HERE:
      testThatAlphabetizationWorks   */
-    NSMutableArray *myMutableCharacterArray = [characterArray mutableCopy];
+//    NSMutableArray *myMutableCharacterArray = [characterArray mutableCopy];
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
-    [myMutableCharacterArray sortUsingDescriptors:@[sortDescriptor]];
-    return myMutableCharacterArray;
+    return [characterArray sortedArrayUsingDescriptors:@[sortDescriptor]];
+    
 }
 
 - (BOOL) characterArrayContainsWorf:(NSArray *)characterArray {
     /* WORK HERE:
      testThatCharacterArrayDetectsWorfIfPresent */
-    NSMutableArray *mutantCharacterArray = [characterArray mutableCopy];
+//    NSMutableArray *mutantCharacterArray = [characterArray mutableCopy];
     NSPredicate *containsThe = [NSPredicate predicateWithFormat:@"SELF CONTAINS[c] 'worf'"];
-    [mutantCharacterArray filterUsingPredicate:containsThe];
-    for (NSString *task in mutantCharacterArray) {
-        NSLog(@"Remaining task: %@", task);
-    }
-    return YES;
- 
+    return [characterArray filteredArrayUsingPredicate:containsThe].count  > 0 ;
+    
 }
 
 @end
