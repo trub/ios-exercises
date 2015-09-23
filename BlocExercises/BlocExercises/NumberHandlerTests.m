@@ -35,8 +35,8 @@
     NSArray *actualArray = [self.handler arrayOfNumbersBetweenNumber:5 andOtherNumber:8];
     XCTAssertEqualObjects(expectedArray, actualArray, @"Incorrect number array was returned.");
 
-    expectedArray = @[@-4, @-3, @-2, @-1, @0];
-    actualArray = [self.handler arrayOfNumbersBetweenNumber:-4 andOtherNumber:0];
+    expectedArray = @[@1, @2, @3, @4];
+    actualArray = [self.handler arrayOfNumbersBetweenNumber:4 andOtherNumber:1];
     XCTAssertEqualObjects(expectedArray, actualArray, @"Incorrect number array was returned.");    
 }
 
