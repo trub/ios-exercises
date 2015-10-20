@@ -77,14 +77,71 @@ let (rating, fullTitle) = createHarrysMovieTitle()
 print("\(fullTitle) got \(rating) stars. Let's see it!")
 
 
-func createHarrysMovieTitle(name: String = "the Sorcerer's Stone") -> (starRatintg: Int, title: String) {
+func acreateHarrysMovieTitle(name: String = "the Sorcerer's Stone") -> (starRating: Int, title: String) {
     let ratingStars = 5
     let title = "Harry Potter and " + name
     return (ratingStars, title)
 }
 
-let movie = createHarrysMovieTitle()
-print("\(movie.title) got \(movie.starRating) stars. Let's see it!")
+// Example usage
+let movie = acreateHarrysMovieTitle()
+println("\(movie.title) got \(movie.starRating) stars. Let's see it!")
 
 //Optionals
+
+let potterBoy = ["name" : "harry", "mark" :" forehead"]
+
+let theMistsOfAvalon : [String: String] = potterBoy
+
+let author = theMistsOfAvalon["author"]
+
+if author != nil {
+    
+    let unwrappedAuthor = author!
+    print("The author is \(unwrappedAuthor).")
+} else {
+    print("We don't know who wrote this.")
+}
+
+
+//if let notation
+
+let theMistsOfAvalon : [String : String] = potterBoy
+
+if let unwrappedAuthor1 = theMistsOfAvalon["author"] {
+    print("the author is \(unwrappedAuthor1).")
+} else {
+    print("We don't know who wrote this.")
+}
+
+//Optional Chaining
+
+var numberOfPagesInTheMistsOfAvalon : String?
+
+if let books = mediaDict["books"] {
+    if let mistsOfAvalon = books["The Mists of Avalon"] {
+        if let numberOfPages = mistsOfAvalon["number_of_pages"] {
+            numberOfPagesInTheMistsOfAvalon = numberOfPages
+        }
+    }
+}
+
+if let pageCount = numberOfPagesInTheMistsOfAvalon {
+    print(pageCount)
+}
+
+
+//simplify
+
+if let numberOfPagesInTheMistsOfAvalon = mediaDict["books"]?["The Mists of Avalon"]?["number_of_pages"] {
+    println(numberOfPagesInTheMistsOfAvalon) // prints "876"
+}
+
+//Closures
+
+//ex using SORTED
+
+
+
+
 
